@@ -32,6 +32,14 @@ function Navbar(props) {
         document.body.getElementsByClassName('nav-btn')[0].classList.toggle('bi-x')
         
     }
+    const handleClick2 = (e) =>{
+        if(document.body.getElementsByClassName('navbar-mobile')[0]){
+            document.body.getElementsByClassName('navbar-mobile')[0].classList.remove('navbar-mobile')
+            document.body.getElementsByClassName('nav-btn')[0].classList.toggle('bi-list')
+            document.body.getElementsByClassName('nav-btn')[0].classList.toggle('bi-x')
+        }
+        
+    }
 
     return (
         <div>
@@ -44,11 +52,11 @@ function Navbar(props) {
 
                 <nav id="navbar" className="navbar">
                     <ul>
-                    <li><a className="nav-link scrollto hero-x" href="#hero">Home</a></li>
-                    <li><a className="nav-link scrollto about-x" href="#about">About</a></li>
-                    <li><a className="nav-link scrollto features-x" href="#features">Gallery</a></li>
-                    <li><a className="nav-link scrollto services-x" href="#services">Curriculum</a></li>
-                    <li><a className="nav-link scrollto contact-us-x" href="#contact-us">Contact Us</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto hero-x" href="#hero">Home</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto about-x" href="#about">About</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto features-x" href="#features">Gallery</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto services-x" href="#services">Curriculum</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto contact-us-x" href="#contact-us">Contact Us</a></li>
                     <li><Link to='/login' className="nav-link scrollto">Login</Link></li>
                     
                     </ul>

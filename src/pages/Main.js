@@ -13,18 +13,13 @@ import useIntersection from '../helpers/useIntersection'
 import { Link } from "react-router-dom";
 
 import { Gallery } from "react-grid-gallery";
-import { Oval } from 'react-loader-spinner'
 
-function Main() {
-    const [loading, setLoading] = useState(false)
 
+function Main(props) {
     const [heroImageLink, setHeroImageLink] = useState("")
     const [contactImageLink, setContactImageLink] = useState("")
     const [galleryImages, setGalleryImages] = useState([])
     const [sliderImages, setSliderImages] = useState([])
-    let sliderImage = [];
-
-    let image = []
 
     const ref0= useRef();
     const ref1 = useRef();
@@ -37,6 +32,12 @@ function Main() {
     const inViewport3 = useIntersection(ref3, '-300px'); // Trigger as soon as the element becomes visible
     const inViewport4 = useIntersection(ref4, '-300px'); // Trigger as soon as the element becomes visible
 
+    useEffect(() => {
+        setHeroImageLink(props.heroImageLink)
+        setContactImageLink(props.contactImageLink)
+        setGalleryImages(props.galleryImages)
+        setSliderImages(props.sliderImages)
+    }, [])
     
     if (inViewport0) {
         document.body.getElementsByClassName(`hero-x`)[0].classList.remove("active")
@@ -84,73 +85,22 @@ function Main() {
         
         document.body.getElementsByClassName(`${ref4.current.id}-x`)[0].classList.add("active")
     }
-    useEffect(() => {
-        setLoading(true)
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/images/section-images`)
-        .then(response => response.json())
-        .then(data => {
-            if(data.pictures){
-                data.pictures.map(img =>{
-                    if(img.section === '6484efb8a876c783cac0a348'){
-                        setHeroImageLink(img.link)
-                    }
-                    if(img.section === '6484f32c64ab1e085fc494c7'){
-                        setContactImageLink(img.link)
-                    }
-                    if(img.section === '6484f35e64ab1e085fc494ca'){
-                        image.push({src: img.link, width: 320, height: 212})
-                        setGalleryImages(image)
-                    }
-                    if(img.section === '6484f2ff64ab1e085fc494c4'){
-                        sliderImage.push({original: img.link, thumbnail: img.link})
-                        setSliderImages(sliderImage)
-                    }
-                })
-                setLoading(false)
-                
-            }
-      });
-    }, [])
+    
     return (
-        loading ?
-            <div className="row d-flex justify-content-center" style={{height: '80vh'}}>
-                <div className="col-md-18 flex-container2">
-                    <Oval
-                        color="#106eea"
-                        height={50}
-                        width={50}
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        visible={true}
-                        ariaLabel='oval-loading'
-                        secondaryColor="black"
-                        strokeWidth={2}
-                        strokeWidthSecondary={2}
-                        backgroundColor="#fcf9f9"
-                    />
-
-                </div>
-                <div id="hero" style={{display: 'none'}} ref={ref0}></div>
-                <div id="about" style={{display: 'none'}} ref={ref1}></div>
-                <div id="features" style={{display: 'none'}} ref={ref4}></div>
-                <div id="services" style={{display: 'none'}} ref={ref2}></div>
-                <div id="contact-us" style={{display: 'none'}} ref={ref3}></div>
-            </div>
-        :
             <div>
-                <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1">
-                    <div className="container" data-aos="zoom-out" data-aos-delay="100">
-                        <h1>Welcome to <span>Learn-To-Swim</span></h1>
-                        <h2>We are team of talented swimmers teaching our swimming skills to all ages</h2>
-                        <h5>Book a lesson by filling a form</h5>
-                        <p style={{"color": "Red"}}>*No credit card required*</p>
-                        <div className="d-flex">
-                            <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
-                            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox btn-watch-video"><i className="bi bi-play-circle"></i><span>Watch Video</span></a>
-                        </div>
-                    </div>
-                </section>
                 <main id="main">
+                    <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1">
+                        <div className="container" data-aos="zoom-out" data-aos-delay="100">
+                            <h1>Welcome to <span>Learn-To-Swim</span></h1>
+                            <h2>We are team of talented swimmers teaching our swimming skills to all ages</h2>
+                            <h5>Book a lesson by filling a form</h5>
+                            <p style={{"color": "Red"}}>*No credit card required*</p>
+                            <div className="d-flex">
+                                <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
+                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox btn-watch-video"><i className="bi bi-play-circle"></i><span>Watch Video</span></a>
+                            </div>
+                        </div>
+                    </section>
                     <section id="about" ref={ref1} className="why-us section2">
                     <div className="container" data-aos="fade-up">
 
@@ -162,7 +112,7 @@ function Main() {
                         <div className="row g-0" data-aos="fade-up" data-aos-delay="200">
 
                         <div className="col-xl-5 img-bg">
-                            <Slider images={sliderImages} />
+                            <Slider images={props.sliderImages} />
                         </div>
                         <div className="col-xl-7 slides  position-relative">
 
@@ -301,54 +251,7 @@ function Main() {
                         </div>
                     </section>
 
-                    <footer id="footer" class="footer">
-                            <div class="footer-content">
-                            <div class="container">
-                                <div class="row gy-4">
-                                <div class="col-lg-5 col-md-12 footer-info">
-                                    <a href="index.html" class="logo d-flex align-items-center">
-                                    <span>Learn-to-swim</span>
-                                    </a>
-                                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                                    <div class="social-links d-flex  mt-3">
-                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-2 col-6 footer-links">
-                                    <h4>Our Services</h4>
-                                    <ul>
-                                    <li><i class="bi bi-dash"></i> <a href="#">Web Design</a></li>
-                                    <li><i class="bi bi-dash"></i> <a href="#">Web Development</a></li>
-                                    <li><i class="bi bi-dash"></i> <a href="#">Product Management</a></li>
-                                    <li><i class="bi bi-dash"></i> <a href="#">Marketing</a></li>
-                                    <li><i class="bi bi-dash"></i> <a href="#">Graphic Design</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                                    <h4>location & contact info</h4>
-                                    <p>
-                                    Chester House <br></br>
-                                    Nairobi, CBD<br></br>
-                                    Kenya <br></br><br></br>
-                                    <strong>Phone:</strong> 0792789618<br></br>
-                                    <strong>Email:</strong> learntoswim@gmail.com<br></br>
-                                    </p>
-
-                                </div>
-
-                                </div>
-                            </div>
-                            </div>
-
-                            
-                        </footer>
-
-                    </main>
+                </main>    
             </div>
     )
 }
