@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import './Main.css'
 
 import "./assets2/vendor/bootstrap/css/bootstrap.min.css"
@@ -89,6 +90,9 @@ function Main(props) {
     return (
             <div>
                 <main id="main">
+                    <Helmet>
+                        <title>Learn to Swim</title>
+                    </Helmet>
                     <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1">
                         <div className="container" data-aos="zoom-out" data-aos-delay="100">
                             <h1>Welcome to <span>Learn-To-Swim</span></h1>
@@ -103,7 +107,6 @@ function Main(props) {
                     </section>
                     <section id="about" ref={ref1} className="why-us section2">
                     <div className="container" data-aos="fade-up">
-
                         <div className="section-header">
                             <h2>Why Choose Us</h2>
 

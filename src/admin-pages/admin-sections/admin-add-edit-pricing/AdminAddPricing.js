@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import * as jose from 'jose'
-
+import { Helmet } from 'react-helmet'
 import AdminSidebar from '../../admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminAddPricing() {
     const [username, setUsername] = useState("")
@@ -54,13 +57,14 @@ function AdminAddPricing() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/add-pricing`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                if(data.msg){
-                    console.log(data.msg)
+                if (data.msg) {
+                    toast.info(data.msg)
                     setButtonLoading(false)
-				}else if(data.err){
+                    navigate(-1)
+                }else if(data.err){
+                    toast.error(data.err)
                     setButtonLoading(false)
-                    console.log(data.err)
-				} 
+                } 
         });
         
     }
@@ -71,7 +75,13 @@ function AdminAddPricing() {
 
     return (
         <div className="app-container">
-            <AdminSidebar username={username} active={"home"}/>
+            <Helmet>
+                <title>Admin - Pricing</title>
+            </Helmet>
+            <AdminSidebar username={username} active={"pricing"}/>
+            <ToastContainer 
+                theme="dark"
+            />
             <div className="app-content">
                 <div className="app-content-header">
                 <h1 className="app-content-headerText">Add New Pricing</h1>

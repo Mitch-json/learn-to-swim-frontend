@@ -6,6 +6,9 @@ import * as jose from 'jose'
 
 import AdminSidebar from '../../admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AdminEditImage() {
     const [username, setUsername] = useState("")
     const [loading, setLoading] = useState(false)
@@ -69,8 +72,14 @@ function AdminEditImage() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/images/change-section-image`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setButtonLoading(false)
+                if (data.msg) {
+                    toast.info(data.msg)
+                    setButtonLoading(false)
+                    navigate(-1)
+                }else if(data.err){
+                    toast.error(data.err)
+                    setButtonLoading(false)
+                }
         });
     }
 
@@ -123,6 +132,9 @@ function AdminEditImage() {
     return (
         <div className="app-container">
             <AdminSidebar username={username} active={"home"} />
+            <ToastContainer 
+                theme="dark"
+            />
             <div className="app-content">
                 <div className="app-content-header">
                 <h1 className="app-content-headerText">Home Section</h1>

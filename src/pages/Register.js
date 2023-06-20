@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Register.css'
 import { Oval } from 'react-loader-spinner'
+import { Helmet } from 'react-helmet'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
     const navigate = useNavigate();
@@ -32,6 +35,7 @@ function Register() {
                 if(data.msg){
                     navigate("/login");
 				}else if(data.err){
+                    toast.error(data.err)
 					setButtonLoading(false)
 				} 
         });
@@ -43,6 +47,12 @@ function Register() {
 
     return (
         <div className="backg">
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
+            <ToastContainer 
+                theme="dark"
+            />
             <section className="ftco-section">
                 <div className="container">
                     <div className="row justify-content-center">

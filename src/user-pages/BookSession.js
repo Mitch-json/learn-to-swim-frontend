@@ -3,6 +3,9 @@ import './BookSession.css'
 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function BookSession() {
     const [buttonLoading, setButtonLoading] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -35,18 +38,24 @@ function BookSession() {
             .then(data => {
                 if(data.msg){
                     console.log(data.msg)
+                    toast.success(data.msg)
                     setButtonLoading(false)
 				}else if(data.err){
                     console.log(data.err)
+                    toast.error(data.err)
                     setButtonLoading(false)
 				}else if(data.error){
                     console.log(data.error)
+                    toast.error("connection problem. Please try again.")
                     setButtonLoading(false)
 				} 
         });
     }
     return (
         <div className="backg">
+            <ToastContainer 
+                theme="dark"
+            />
             <section className="ftco-section">
                 <div className="container">
                     <div className="row justify-content-center">

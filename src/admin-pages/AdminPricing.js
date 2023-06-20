@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './AdminClients.css'
 import './AdminHome.css'
-
+import { Helmet } from 'react-helmet'
 import { useCookies } from 'react-cookie';
 import * as jose from 'jose'
 import { Link, useNavigate } from 'react-router-dom';
@@ -70,6 +70,9 @@ function AdminPricing() {
     }
     return (
         <div className="app-container">
+            <Helmet>
+                <title>Admin - Pricing</title>
+            </Helmet>
             <AdminSidebar username={username} active={"pricing"} />
             <div className="app-content">
                 <div className="app-content-header">
@@ -100,7 +103,7 @@ function AdminPricing() {
                     :  
                         <div className="products-area-wrapper gridView">
                             {pricings.map(pricing => 
-                                <div key={pricing._id} style={{width: 'auto'}} className="products-row no-pointer">
+                                <div key={pricing._id} style={{width: 'auto', minWidth: '250px'}} className="products-row no-pointer">
                                     
                                     <div className="product-cell image">
                                         <h3>{pricing.classification}</h3>

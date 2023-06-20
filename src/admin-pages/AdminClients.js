@@ -1,7 +1,7 @@
 import { useCookies } from 'react-cookie';
 import React, { useEffect, useState } from 'react'
 import './AdminClients.css'
-
+import { Helmet } from 'react-helmet'
 import AdminSidebar from './admin-components/AdminSidebar'
 import * as jose from 'jose'
 import { Link, useNavigate } from 'react-router-dom';
@@ -43,12 +43,20 @@ function AdminClients() {
         }
     }, [])
 
+    const getDate = (createdAt)=>{
+        var date = new Date(createdAt)
+        return date.toLocaleString('en-GB', {day:'numeric', month: 'long', year:'numeric'})
+    }
+
     return (
         <div className="app-container">
+            <Helmet>
+                <title>Admin - Clients</title>
+            </Helmet>
             <AdminSidebar username={username} active={"clients"} />
             <div className="app-content">
                 <div className="app-content-header">
-                    <h1 className="app-content-headerText">clients</h1>
+                    <h1 className="app-content-headerText">Clients</h1>
                 
                 </div>
                 <div className="products-area-wrapper tableView">
@@ -106,7 +114,7 @@ function AdminClients() {
                                         {client.phone}
                                     </div>
                                     <div className="product-cell stock">
-                                        30/02/23
+                                        {getDate(client.createdAt)}
                                     </div>
                                 </div>
                             )

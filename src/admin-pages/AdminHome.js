@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './AdminClients.css'
 import './AdminHome.css'
-
+import { Helmet } from 'react-helmet'
 import { useCookies } from 'react-cookie';
 import * as jose from 'jose'
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,6 +17,13 @@ function AdminHome() {
     const [sections, setSections] = useState([])
     const [cookies, setCookie, removeCookie] = useCookies(['userToken']);
     const navigate = useNavigate()
+
+    const sectionImages = {
+        "Home": "https://diggiweb.com/wp-content/uploads/2021/03/video-animation.png",
+        "About": "https://img.freepik.com/free-vector/laptop-computer-with-academic-icon-white-background_1308-70256.jpg",
+        "Contact": "https://i.pinimg.com/736x/4a/ff/d8/4affd89a9f1bef68eaddc24a749fa532.jpg",
+        "Gallery": "https://www.thepostingtree.com/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-20-at-5.38.21-AM.jpeg"
+    }
 
     useEffect(() => {
         if (cookies.userToken) {
@@ -53,6 +60,9 @@ function AdminHome() {
 
     return (
         <div className="app-container">
+            <Helmet>
+                <title>Admin - Home</title>
+            </Helmet>
             <AdminSidebar username={username} active={"home"} />
             <div className="app-content">
                 <div className="app-content-header">
@@ -87,17 +97,29 @@ function AdminHome() {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                                     </button>
                                     <div className="product-cell image">
-                                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product"></img>
-                                        <span>{section.name}</span>
+                                        {
+                                            section.name === "Home" ?
+                                                <img src={sectionImages.Home} alt="product"></img>
+                                            :
+                                                section.name === "About" ?
+                                                    <img src={sectionImages.About} alt="product"></img>
+                                                :
+                                                    section.name === "Contact" ?
+                                                        <img src={sectionImages.Contact} alt="product"></img>
+                                                    :
+                                                        section.name === "Gallery" ?
+                                                            <img src={sectionImages.Gallery} alt="product"></img>
+                                                        :
+                                                            <img src="https://greenway.com.vn/wp-content/uploads/2020/02/z2296537155291_031df31c0bf85c7bc1de48699cb3c814.jpg" alt="product"></img>
+                                                            
+                                        }
+                                        <span>{section.name} Section</span>
                                     </div>
-                                    <div className="product-cell category"><span className="cell-label">Category:</span>Furniture</div>
                                     <div className="product-cell status-cell">
-                                    <span className="cell-label">Status:</span>
-                                    <span className="status active">Active</span>
+                                        <span className="cell-label">Status:</span>
+                                        <span className="status active">Active</span>
                                     </div>
-                                    <div className="product-cell sales"><span className="cell-label">Sales:</span>11</div>
-                                    <div className="product-cell stock"><span className="cell-label">Stock:</span>36</div>
-                                    <div className="product-cell price"><span className="cell-label">Price:</span>$560</div>
+                                    
                                 </Link>   
                             )}
                         </div>  

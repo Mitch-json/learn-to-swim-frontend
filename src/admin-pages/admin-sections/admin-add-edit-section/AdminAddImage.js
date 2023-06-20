@@ -6,6 +6,9 @@ import * as jose from 'jose'
 
 import AdminSidebar from '../../admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AdminAddImage() {
     const [username, setUsername] = useState("")
     const [buttonLoading, setButtonLoading] = useState(false)    
@@ -52,8 +55,14 @@ function AdminAddImage() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/images/add-section-image`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setButtonLoading(false)
+                if (data.msg) {
+                    toast.info(data.msg)
+                    setButtonLoading(false)
+                    navigate(-1)
+                }else if(data.err){
+                    toast.error(data.err)
+                    setButtonLoading(false)
+                }
         });
     }
 
@@ -67,7 +76,6 @@ function AdminAddImage() {
             axios.post('https://api.cloudinary.com/v1_1/dwxzlruyd/image/upload',fd).then(res => {
                 if (res.status == 200) {
                     const Url = res.data.url 
-                    console.log(Url)
                     saveAboutSectionImage(Url)
                 } else {
                     
@@ -106,6 +114,9 @@ function AdminAddImage() {
     return (
         <div className="app-container">
             <AdminSidebar username={username} active={"home"}/>
+            <ToastContainer 
+                theme="dark"
+            />
             <div className="app-content">
                 <div className="app-content-header">
                 <h1 className="app-content-headerText">About Section Add Image</h1>

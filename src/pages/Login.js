@@ -8,6 +8,9 @@ import Loader from 'react-loader-spinner'
 import * as jose from 'jose'
 import { Oval } from 'react-loader-spinner'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Login() {
     const [buttonLoading, setButtonLoading] = useState(false)
     const [usernameOrEmail, setUsernameOrEmail] = useState("")
@@ -15,6 +18,7 @@ function Login() {
     
     const [cookies, setCookie] = useCookies(['userToken', 'passToken']);
     const navigate = useNavigate();
+
 
     const handleSubmit = (e)=>{
 		e.preventDefault()
@@ -32,7 +36,7 @@ function Login() {
                     setCookie("userToken", {token: data.token}, {maxAge: 3600})
                     navigate("/admin/home");
 				}else if(data.err){
-					console.log(data.err)
+                    toast.error(data.err)
                     setButtonLoading(false)
 				} 
         });
@@ -41,6 +45,12 @@ function Login() {
 	}
     return (
         <div className="backg">
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
+            <ToastContainer 
+                theme="dark"
+            />
             <section className="ftco-section">
                 <div className="container">
                     <div className="row justify-content-center">

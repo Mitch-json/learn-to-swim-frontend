@@ -5,6 +5,9 @@ import * as jose from 'jose'
 
 import AdminSidebar from '../admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AdminGallerySection() {
     const [username, setUsername] = useState("")
     const [loading, setLoading] = useState(false)    
@@ -48,6 +51,13 @@ function AdminGallerySection() {
                 if(data.pictures){
                     setImages(data.pictures)
                     setLoading(false)
+                }else if (data.alert) {
+                    toast.warning(data.alert)
+                    setLoading(false)
+                } else if (data.err) {
+                    toast.err(data.err)
+                    setLoading(false)
+                    
                 }
         });
     }
@@ -57,9 +67,12 @@ function AdminGallerySection() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/images/delete-image/${image_id}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 if (data.msg) {
+                    toast.info(data.msg)
+                    setDeleteLoading(false)
                     fetchImages(section_id)
+                }else if(data.err){
+                    toast.error(data.err)
                     setDeleteLoading(false)
                 }
         });
@@ -71,6 +84,9 @@ function AdminGallerySection() {
     return (
         <div className="app-container">
             <AdminSidebar username={username} active={"home"} />
+            <ToastContainer 
+                theme="dark"
+            />
             <div className="app-content">
                 <div className="app-content-header">
                 <h1 className="app-content-headerText">Gallery Section</h1>

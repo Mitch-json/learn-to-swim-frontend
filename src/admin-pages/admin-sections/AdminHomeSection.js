@@ -7,6 +7,9 @@ import * as jose from 'jose'
 
 import AdminSidebar from '../admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AdminHomeSection() {
     const [loading, setLoading] = useState(false)
     const [buttonLoading, setButtonLoading] = useState(false)
@@ -43,9 +46,18 @@ function AdminHomeSection() {
             fetch(`${process.env.REACT_APP_BACKEND_URL}/images/section-images/${searchParams.get('sec_id')}`)
                 .then(response => response.json())
                 .then(data => {
-                    setSectionImageID(data.pictures[0]._id)
-                    setSectionImageLink(data.pictures[0].link)
-                    setLoading(false)
+                    if(data.pictures){
+                        setSectionImageID(data.pictures[0]._id)
+                        setSectionImageLink(data.pictures[0].link)
+                        setLoading(false)
+                    }else if (data.alert) {
+                        toast.warning(data.alert)
+                        setLoading(false)
+                    } else if (data.err) {
+                        toast.err(data.err)
+                        setLoading(false)
+                        
+                    }
             });
             
         } else {
@@ -63,8 +75,14 @@ function AdminHomeSection() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/images/change-section-image`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setButtonLoading(false)
+                if (data.msg) {
+                    toast.info(data.msg)
+                    setButtonLoading(false)
+                    navigate(-1)
+                }else if(data.err){
+                    toast.error(data.err)
+                    setButtonLoading(false)
+                }
         });
     }
 
@@ -116,6 +134,9 @@ function AdminHomeSection() {
     return (
         <div className="app-container">
             <AdminSidebar username={username} active={"home"} />
+            <ToastContainer 
+                theme="dark"
+            />
             <div className="app-content">
                 <div className="app-content-header">
                     <h1 className="app-content-headerText">Home Section</h1>

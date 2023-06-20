@@ -5,7 +5,13 @@ import { useCookies } from 'react-cookie';
 function AdminSidebar(props) {
     const navigate = useNavigate()
     const [cookies, setCookie, removeCookie] = useCookies(['userToken']);
+
     useEffect(() => {
+        if (document.body.querySelector(`.active`)) {
+            document.body.querySelector(`.active`).classList.remove('active')
+        }
+    
+        document.body.querySelector(`#${props.active}`).classList.add('active')
         
 
     }, [])
@@ -41,7 +47,7 @@ function AdminSidebar(props) {
                         </Link>
                     </li>
                     <li key={"5"} className="sidebar-list-item">
-                        <Link onClick={logout}>
+                        <Link onClick={logout} to="/">
                             <i className="fa fa-sign-out" style={{fontSize: '1.2rem', marginRight: '5px'}}></i>
                             <span>Logout</span>
                         </Link>
