@@ -36,9 +36,9 @@ root.render(
         <Route path='/login' element={<Login />} />
         <Route path='/book-a-session' element={<BookSession />} />
         
-        <Route path='/user/overview' element={<UserOverview />} />
+        {/* <Route path='/user/overview' element={<UserOverview />} />
         <Route path='/user/messages' element={<UserMessages />} />
-        <Route path='/user/calendar' element={<UserCalendar />} />
+        <Route path='/user/calendar' element={<UserCalendar />} /> */}
 
         <Route path='/admin/clients' element={<AdminClients />} />
         <Route path='/admin/home' element={<AdminHome />} />
