@@ -10,6 +10,7 @@ import "./assets2/vendor/swiper/swiper-bundle.min.css"
 import "./assets2/vendor/remixicon/remixicon.css"
 import Slider from '../components/Slider'
 import useIntersection from '../helpers/useIntersection'
+import YouTube, { YouTubeProps } from 'react-youtube';
 
 import { Link } from "react-router-dom";
 
@@ -86,9 +87,38 @@ function Main(props) {
         
         document.body.getElementsByClassName(`${ref4.current.id}-x`)[0].classList.add("active")
     }
+
+    const opts = {
+        height: '100%',
+        width: '100%',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      };
+
+    const _onReady = (event)=> {
+        // access to player in all event handlers via event.target
+        event.target.pauseVideo();
+    }
+
+    const handleClick = (e) =>{
+        document.body.getElementsByClassName('ybar-main')[0].classList.remove('no-view')
+        document.body.getElementsByClassName('ybar-main')[0].classList.add('ybar-mobile')
+    }
+    const handleClick2 = (e) =>{
+        document.body.getElementsByClassName('ybar-main')[0].classList.add('no-view')
+        document.body.getElementsByClassName('ybar-main')[0].classList.remove('ybar-mobile')
+    }
     
     return (
             <div>
+                <div className="navbar ybar-main no-view">
+                    <div>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  /> 
+                    </div>
+                    <i className="bi yt-btn bi-x mobile-nav-toggle" onClick={handleClick2} ></i>  
+                </div>
                 <main id="main">
                     <Helmet>
                         <title>Learn to Swim</title>
@@ -101,7 +131,7 @@ function Main(props) {
                             <p style={{"color": "Red"}}>*No credit card required*</p>
                             <div className="d-flex">
                                 <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
-                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox btn-watch-video"><i className="bi bi-play-circle"></i><span>Watch Video</span></a>
+                                <Link onClick={handleClick} className="glightbox btn-watch-video"><i className="bi bi-play-circle"></i><span>Watch Video</span></Link>
                             </div>
                         </div>
                     </section>

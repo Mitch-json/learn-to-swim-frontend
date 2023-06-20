@@ -27,7 +27,7 @@ function Navbar(props) {
     };
 
     const handleClick = (e) =>{
-        document.body.getElementsByClassName('navbar')[0].classList.toggle('navbar-mobile')
+        document.body.getElementsByClassName('navbar-main')[0].classList.toggle('navbar-mobile')
         document.body.getElementsByClassName('nav-btn')[0].classList.toggle('bi-list')
         document.body.getElementsByClassName('nav-btn')[0].classList.toggle('bi-x')
         
@@ -50,7 +50,7 @@ function Navbar(props) {
                 {/* Uncomment below if you prefer to use an image logo
                 <a href="index.html" className="logo"><img src="assets/img/logo.png" alt=""></img></a> */}
 
-                <nav id="navbar" className="navbar">
+                <nav id="navbar" className="navbar navbar-main">
                     <ul>
                     <li><a onClick={handleClick2} className="nav-link scrollto hero-x" href="#hero">Home</a></li>
                     <li><a onClick={handleClick2} className="nav-link scrollto about-x" href="#about">About</a></li>
