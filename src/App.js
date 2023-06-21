@@ -15,6 +15,8 @@ import useIntersection from './helpers/useIntersection.js'
 import Footbar from './components/Footbar';
 
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -30,33 +32,39 @@ function App() {
     AOS.init();
     setLoading(true)
     fetch(`${process.env.REACT_APP_BACKEND_URL}/images/section-images`)
-    .then(response => response.json())
-    .then(data => {
-        if(data.pictures){
-            data.pictures.map(img =>{
-                if(img.section === '6484efb8a876c783cac0a348'){
-                    setHeroImageLink(img.link)
-                }
-                if(img.section === '6484f32c64ab1e085fc494c7'){
-                    setContactImageLink(img.link)
-                }
-                if(img.section === '6484f35e64ab1e085fc494ca'){
-                    image.push({src: img.link, width: 320, height: 212})
-                    setGalleryImages(image)
-                }
-                if(img.section === '6484f2ff64ab1e085fc494c4'){
-                    sliderImage.push({original: img.link, thumbnail: img.link})
-                    setSliderImages(sliderImage)
-                }
-            })
-            setLoading(false)
-            
-        }
-      });
+      .then(response => response.json())
+      .then(data => {
+          if(data.pictures){
+              data.pictures.map(img =>{
+                  if(img.section === '6484efb8a876c783cac0a348'){
+                      setHeroImageLink(img.link)
+                  }
+                  if(img.section === '6484f32c64ab1e085fc494c7'){
+                      setContactImageLink(img.link)
+                  }
+                  if(img.section === '6484f35e64ab1e085fc494ca'){
+                      image.push({src: img.link, width: 320, height: 212})
+                      setGalleryImages(image)
+                  }
+                  if(img.section === '6484f2ff64ab1e085fc494c4'){
+                      sliderImage.push({original: img.link, thumbnail: img.link})
+                      setSliderImages(sliderImage)
+                  }
+              })
+              setLoading(false)
+              
+          }
+    }).catch(error =>{
+      toast.error("Network connection error")
+      setLoading(false)
+  })
   }, [])
   
   return (
     <div className="App">
+      <ToastContainer 
+          theme="dark"
+      />
       <Navbar navbarStick={{height: 100}} />
       {
           loading ?

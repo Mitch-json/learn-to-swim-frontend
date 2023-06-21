@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import AdminSidebar from './admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminPricing() {
     const [loading, setLoading] = useState(false)
@@ -53,7 +55,10 @@ function AdminPricing() {
                     setLoading(false)
 
                 }
-            })
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setLoading(false)
+        })
     }
 
     const deletePricing = (id) =>{
@@ -66,13 +71,19 @@ function AdminPricing() {
                     fetchPricings()
                     setDeleteLoading(false)
                 }
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setDeleteLoading(false)
+        })
     }
     return (
         <div className="app-container">
             <Helmet>
                 <title>Admin - Pricing</title>
             </Helmet>
+            <ToastContainer 
+                theme="dark"
+            />
             <AdminSidebar username={username} active={"pricing"} />
             <div className="app-content">
                 <div className="app-content-header">

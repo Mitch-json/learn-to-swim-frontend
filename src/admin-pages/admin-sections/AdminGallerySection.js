@@ -59,7 +59,10 @@ function AdminGallerySection() {
                     setLoading(false)
                     
                 }
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setLoading(false)
+        })
     }
 
     const deleteImage = (image_id, section_id) => {
@@ -75,7 +78,10 @@ function AdminGallerySection() {
                     toast.error(data.err)
                     setDeleteLoading(false)
                 }
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setDeleteLoading(false)
+        })
     }
 
     const goBack = ()=>{

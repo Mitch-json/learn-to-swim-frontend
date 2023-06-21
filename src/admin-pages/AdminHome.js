@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import AdminSidebar from './admin-components/AdminSidebar'
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminHome() {
     const [loading, setLoading] = useState(false)
@@ -40,18 +42,21 @@ function AdminHome() {
             verifyJWT()
             setLoading(true)
             fetch(`${process.env.REACT_APP_BACKEND_URL}/sections`)
-            .then(response => response.json())
-            .then(data => {
-                if(data.sections){
-                    setSections(data.sections)
-                    setLoading(false)
-                }else if(data.alert){
-                    setLoading(false)
-                    
-                }else if(data.err){
-                    setLoading(false)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.sections){
+                        setSections(data.sections)
+                        setLoading(false)
+                    }else if(data.alert){
+                        setLoading(false)
+                        
+                    }else if(data.err){
+                        setLoading(false)
 
-                }
+                    }
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setLoading(false)
             })
         } else {
             navigate('/login')
@@ -63,6 +68,9 @@ function AdminHome() {
             <Helmet>
                 <title>Admin - Home</title>
             </Helmet>
+            <ToastContainer 
+                theme="dark"
+            />
             <AdminSidebar username={username} active={"home"} />
             <div className="app-content">
                 <div className="app-content-header">

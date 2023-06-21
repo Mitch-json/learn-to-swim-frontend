@@ -58,7 +58,10 @@ function AdminHomeSection() {
                         setLoading(false)
                         
                     }
-            });
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setLoading(false)
+            })
             
         } else {
             navigate('/login')
@@ -83,7 +86,10 @@ function AdminHomeSection() {
                     toast.error(data.err)
                     setButtonLoading(false)
                 }
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setButtonLoading(false)
+        })
     }
 
     const handleSubmit = (e)=>{
@@ -95,12 +101,15 @@ function AdminHomeSection() {
            fd.append("upload_preset", "ki9rv42j")
             axios.post('https://api.cloudinary.com/v1_1/dwxzlruyd/image/upload',fd).then(res => {
                 if (res.status == 200) {
-                    const Url = res.data.url 
+                    const Url = res.data.secure_url 
                     console.log(Url)
                     updateSectionImage(Url)
                 } else {
                     
                 }
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setButtonLoading(false)
             })
         }else{
             

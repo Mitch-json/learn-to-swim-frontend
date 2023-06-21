@@ -59,6 +59,9 @@ function AdminEditPricing() {
                     setLoading(false)
 
                 }
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setLoading(false)
             })            
         } else {
             navigate('/login')
@@ -87,7 +90,10 @@ function AdminEditPricing() {
                     toast.error(data.err)
                     setButtonLoading(false)
                 }
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setButtonLoading(false)
+        })
         
     }
 

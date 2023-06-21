@@ -4,8 +4,6 @@ import './Login.css'
 import { useCookies } from 'react-cookie';
 import { Link,useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet'
-import Loader from 'react-loader-spinner'
-import * as jose from 'jose'
 import { Oval } from 'react-loader-spinner'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,15 +29,18 @@ function Login() {
         };
         fetch(`${process.env.REACT_APP_BACKEND_URL}/users/admin-login`, requestOptions)
             .then(response => response.json())
-            .then(async (data) => {
-                if(data.token){
-                    setCookie("userToken", {token: data.token}, {maxAge: 3600})
-                    navigate("/admin/home");
-				}else if(data.err){
-                    toast.error(data.err)
-                    setButtonLoading(false)
-				} 
-        });
+                .then(async (data) => {
+                    if(data.token){
+                        setCookie("userToken", {token: data.token}, {maxAge: 3600})
+                        navigate("/admin/home");
+                    }else if(data.err){
+                        toast.error(data.err)
+                        setButtonLoading(false)
+                    } 
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setButtonLoading(false)
+            })
 
 		
 	}

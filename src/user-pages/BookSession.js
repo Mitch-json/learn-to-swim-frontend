@@ -49,7 +49,10 @@ function BookSession() {
                     toast.error("connection problem. Please try again.")
                     setButtonLoading(false)
 				} 
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setButtonLoading(false)
+        })
     }
     return (
         <div className="backg">

@@ -6,6 +6,9 @@ import AdminSidebar from './admin-components/AdminSidebar'
 import * as jose from 'jose'
 import { Link, useNavigate } from 'react-router-dom';
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AdminClients() {
     const [username, setUsername] = useState("")
     const [loading, setLoading] = useState(false)
@@ -28,15 +31,18 @@ function AdminClients() {
             verifyJWT()
             setLoading(true)
             fetch(`${process.env.REACT_APP_BACKEND_URL}/clients`)
-            .then(response => response.json())
-            .then(data => {
-                if(data.clients){
-                    setClients(data.clients)
-                    setLoading(false)
-                }else if(data.err){
-                    console.log(data.err)
-                    setLoading(false)
-                }
+                .then(response => response.json())
+                .then(data => {
+                    if(data.clients){
+                        setClients(data.clients)
+                        setLoading(false)
+                    }else if(data.err){
+                        console.log(data.err)
+                        setLoading(false)
+                    }
+            }).catch(error =>{
+                toast.error("Network connection error")
+                setLoading(false)
             })
         } else {
             navigate('/login')
@@ -53,6 +59,9 @@ function AdminClients() {
             <Helmet>
                 <title>Admin - Clients</title>
             </Helmet>
+            <ToastContainer 
+                theme="dark"
+            />
             <AdminSidebar username={username} active={"clients"} />
             <div className="app-content">
                 <div className="app-content-header">

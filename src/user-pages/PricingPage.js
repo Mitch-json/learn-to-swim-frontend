@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar2'
 
 import { Link, useNavigate } from 'react-router-dom';
 import { Oval } from 'react-loader-spinner'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PricingPage() {
     const [loading, setLoading] = useState(false)
@@ -25,11 +27,17 @@ function PricingPage() {
                     setLoading(false)
 
                 }
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setLoading(false)
         })
     }, [])
     return (
         <div >
             <Navbar navbarStick={{height: 100}} />
+            <ToastContainer 
+                theme="dark"
+            />
             {loading ?
                 <div className="row d-flex justify-content-center" style={{height: '80vh'}}>
                     <div className="col-md-18 flex-container2">

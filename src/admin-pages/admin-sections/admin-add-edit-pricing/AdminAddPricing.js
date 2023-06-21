@@ -65,7 +65,10 @@ function AdminAddPricing() {
                     toast.error(data.err)
                     setButtonLoading(false)
                 } 
-        });
+        }).catch(error =>{
+            toast.error("Network connection error")
+            setButtonLoading(false)
+        })
         
     }
 
