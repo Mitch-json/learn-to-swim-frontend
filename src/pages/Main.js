@@ -116,7 +116,7 @@ function Main(props) {
                         <div className="row g-0" data-aos="fade-up" data-aos-delay="200">
 
                         <div className="col-xl-5 img-bg">
-                            <Slider images={sliderImages} />
+                            <Slider images={props.sliderImages} />
                         </div>
                         <div className="col-xl-7 slides  position-relative">
 
