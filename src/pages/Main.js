@@ -97,10 +97,10 @@ function Main(props) {
                     </Helmet>
                     <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1">
                         <div className="container" data-aos="zoom-out" data-aos-delay="100">
-                            <h1>Welcome to <span>Learn-To-Swim</span></h1>
-                            <h2>We are team of talented swimmers teaching our swimming skills to all ages</h2>
-                            <h5>Book a lesson by filling a form</h5>
-                            <p style={{"color": "Red"}}>*No credit card required*</p>
+                            <h1 style={{color: 'white'}}>Welcome to <span style={{color: '#00effb'}}>Learn-To-Swim</span></h1>
+                            <h2 style={{color: '#f8f9fa'}}>We are team of talented swimmers teaching our swimming skills to all ages</h2>
+                            <h5 style={{color: '#f8f9fa'}}>Book a lesson by filling a form</h5>
+                            <p style={{color: '#ff7070'}}>*No credit card required*</p>
                             <div className="d-flex">
                                 <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
                             </div>
