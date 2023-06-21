@@ -191,7 +191,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div className="icon flex-shrink-0"><i className="bi bi-1-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 1</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 1</a></h4>
                             <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
                             </div>
                         </div>
@@ -199,7 +199,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
                             <div className="icon flex-shrink-0"><i className="bi bi-2-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 2</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 2</a></h4>
                             <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
                             </div>
                         </div>
@@ -207,7 +207,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
                             <div className="icon flex-shrink-0"><i className="bi bi-3-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 3</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 3</a></h4>
                             <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
                             </div>
                         </div>
@@ -215,7 +215,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
                             <div className="icon flex-shrink-0"><i className="bi bi-4-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 4</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 4</a></h4>
                             <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                             </div>
                         </div>
@@ -223,7 +223,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
                             <div className="icon flex-shrink-0"><i className="bi bi-5-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 5</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 5</a></h4>
                             <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
                             </div>
                         </div>
@@ -231,7 +231,7 @@ function Main(props) {
                         <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
                             <div className="icon flex-shrink-0"><i className="bi bi-6-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
-                            <h4 className="title"><a href="#" className="stretched-link">Day 6</a></h4>
+                            <h4 className="title"><a href="#" className="stretched-link">Lesson 6</a></h4>
                             <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
                             </div>
                         </div>
