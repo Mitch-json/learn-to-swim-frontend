@@ -95,14 +95,15 @@ function Main(props) {
                     <Helmet>
                         <title>Learn to Swim</title>
                     </Helmet>
-                    <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1">
+                    <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1 bg100">
                         <div className="container" data-aos="zoom-out" data-aos-delay="100">
-                            <h1 style={{color: 'white'}}>Welcome to <span style={{color: '#00effb'}}>Learn-To-Swim</span></h1>
+                            <h1 style={{color: 'white'}}>Welcome to <span style={{color: 'rgb(0 31 251)'}}>Learn-To-Swim</span></h1>
                             <h2 style={{color: '#f8f9fa'}}>We are team of talented swimmers teaching our swimming skills to all ages</h2>
+                            <h2 style={{color: '#f8f9fa'}}>We provide swimming lessons for individuals of all ages and abilities, from beginners to advanced swimmers.</h2>
                             <h5 style={{color: '#f8f9fa'}}>Book a lesson by filling a form</h5>
-                            <p style={{color: '#ff7070'}}>*No credit card required*</p>
                             <div className="d-flex">
                                 <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
+                                <a className="btn-get-started scrollto" href="#contact-info" style={{marginLeft: '10px'}}>Contact Us</a>
                             </div>
                         </div>
                     </section>
@@ -115,7 +116,7 @@ function Main(props) {
 
                         <div className="row g-0" data-aos="fade-up" data-aos-delay="200">
 
-                        <div className="col-xl-5 img-bg">
+                        <div className="col-xl-5 img-bg minW1200">
                             <Slider images={props.sliderImages} />
                         </div>
                         <div className="col-xl-7 slides  position-relative">
@@ -125,35 +126,16 @@ function Main(props) {
 
                                 <div className="swiper-slide">
                                 <div className="item">
-                                    <h3 className="mb-3">Let's grow your business together</h3>
-                                    <h4 className="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem, dolorum.</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit doloribus quas sapiente optio.</p>
+                                    <h3 className="mb-3">Here at Learn-to-swim Kenya </h3>
+                                    <h4 className="mb-3">we believe that we stand out for several reasons. </h4>
+                                    <p>Firstly, our team is composed of professional swimmers who have dedicated countless hours throughout their entire lives honing their skills in the water.</p>
+                                    <p>This means you will be learning from individuals who truly understand the intricacies of swimming and can guide you every step of the way. Additionally, our personalized approach ensures that each lesson is tailored to your specific needs and goals, allowing for optimal progress and success. </p>
+                                    <p>Furthermore, we prioritize safety above all else, providing a secure and supportive environment where you can comfortably learn and grow. Whether you're a beginner or an advanced swimmer, Learn to swim Kenya offers a comprehensive range of lessons suitable for you. </p>
+                                    <p>We are dedicated to providing an exceptional swimming experience that will leave you feeling confident, capable, and ready to make a splash in any body of water!</p>
                                 </div>
                                 </div>
 
-                                <div className="swiper-slide">
-                                <div className="item">
-                                    <h3 className="mb-3">Unde perspiciatis ut repellat dolorem</h3>
-                                    <h4 className="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
-                                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut repellat ea. Facere est dolores fugiat dolor.</p>
-                                </div>
-                                </div>
-
-                                <div className="swiper-slide">
-                                <div className="item">
-                                    <h3 className="mb-3">Aliquid non alias minus</h3>
-                                    <h4 className="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
-                                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
-                                </div>
-                                </div>
-
-                                <div className="swiper-slide">
-                                <div className="item">
-                                    <h3 className="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
-                                    <h4 className="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est. Eum similique neque autem ut.</h4>
-                                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
-                                </div>
-                                </div>
+                                
 
                             </div>
                             <div className="swiper-pagination"></div>
@@ -182,7 +164,9 @@ function Main(props) {
                     <div className="container" data-aos="fade-up">
 
                         <div className="section-header">
-                        <h2>Our Curriculum</h2>
+                            <h2>Our Curriculum</h2>
+
+                            <p>Please note that these outlines are a general representation of what we intend to teach each class for complete beginners. The actual content and progress may vary based on individual and group needs, as well as the instructor's professional judgment.</p>
 
                         </div>
 
@@ -192,7 +176,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-1-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 1</a></h4>
-                            <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to the aquatic environment, including pool rules and safety guidelines.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Proper body positioning for floating and basic breath control.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to flutter kick and its importance in swimming.</p>
                             </div>
                         </div>
 
@@ -200,7 +186,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-2-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 2</a></h4>
-                            <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Building upon the flutter kick from the previous class.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to the front crawl arm movements and coordination with breathing.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Focus on body rotation and maintaining a streamlined position.</p>
                             </div>
                         </div>
 
@@ -208,7 +196,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-3-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 3</a></h4>
-                            <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to the backstroke arm movements and coordination with breathing.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Practice floating on the back and building confidence in the water.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Emphasis on body position and maintaining a relaxed and stable backstroke technique.</p>
                             </div>
                         </div>
 
@@ -216,7 +206,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-4-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 4</a></h4>
-                            <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to the breaststroke kick and its timing.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Practice coordinated breathing with the breaststroke technique.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to breaststroke arm movements and coordination with the kick.</p>
                             </div>
                         </div>
 
@@ -224,7 +216,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-5-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 5</a></h4>
-                            <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Gradual progression to deeper water to build confidence and comfort.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to treading water and different techniques for staying afloat.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Focus on water safety skills, such as recognizing and avoiding hazards in deep water.</p>
                             </div>
                         </div>
 
@@ -232,7 +226,9 @@ function Main(props) {
                             <div className="icon flex-shrink-0"><i className="bi bi-6-square-fill" style={{"color": "#0d6efd", fontSize: '23px'}}></i></div>
                             <div>
                             <h4 className="title"><a href="#" className="stretched-link">Lesson 6</a></h4>
-                            <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Review of previously learned strokes and techniques.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Introduction to basic water safety skills, including rescue techniques and self-preservation strategies.</p>
+                            <p className="description"><a href="#" style={{color: "#0d6efd", paddingRight: '10px'}}>●</a> Recap of pool rules and emergency procedures to ensure a safe swimming experience.</p>
                             </div>
                         </div>
 
@@ -241,14 +237,106 @@ function Main(props) {
                     </div>
                     </section>
 
+                    <section id="contact-us" ref={ref3} className="features">
 
-                    <section id="contact-us" ref={ref3} style={{background: `linear-gradient(rgba(27, 47, 69, 0.8), rgba(27, 47, 69, 0.8)), url(${contactImageLink}) center center`}} className="call-to-action section2">
+                        <div className="container" data-aos="fade-up">
+                            <div className="row">
+                            <div className="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                                <h3>Our Services </h3>
+
+                                <div className="row gy-4">
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-store-line" style={{color: "#ffbb2c"}}></i>
+                                    <span>	Stroke Development</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-bar-chart-box-line" style={{color: "#5578ff"}}></i>
+                                    <span>	Deep Water Confidence</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-calendar-todo-line" style={{color: "#e80368"}}></i>
+                                    <span>	Water Safety and Survival Skills</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-paint-brush-line" style={{color: "#e361ff"}}></i>
+                                    <span>	Fitness Swimming</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-database-2-line" style={{color: "#47aeff"}}></i>
+                                    <span>	Specialized Training</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-gradienter-line" style={{color: "#ffa76e"}}></i>
+                                    <span>	Aqua Aerobics</span>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-file-list-3-line" style={{color: "#11dbcf"}}></i>
+                                    <span>	Private Lessons & Group Lessons</span>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="icon-list d-flex">
+                                    <i className="ri-base-station-line" style={{color: "#ff5828"}}></i>
+                                    <span>	Lifeguard Training</span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-5 position-relative mw-768" data-aos="fade-up" data-aos-delay="200">
+                                <div className="phone-wrap">
+                                <img src={require('./assets2/img/iphone2.jpg')} alt="Image" className="img-fluid"></img>
+                                </div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="details">
+                            <div className="container" data-aos="fade-up" data-aos-delay="300">
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <h4>Learn to Swim Programs</h4>
+                                    <p>We provide swimming lessons for individuals of all ages and abilities, from beginners to advanced swimmers. Our expert instructors will guide you through a structured program tailored to your skill level and goals</p>
+                                    
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+
+                        </section>
+
+
+                    <section id="contact-info"  style={{background: `linear-gradient(rgba(27, 47, 69, 0.8), rgba(27, 47, 69, 0.8)), url(${contactImageLink}) center center`}} className="call-to-action section2">
                         <div className="container" data-aos="fade-up">
                             <div className="row justify-content-center">
                             <div className="col-lg-6 text-center">
-                                <h3>Ut fugiat aliquam aut non</h3>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                                <a className="cta-btn" href="#">Contact Us</a>
+                                <h3>Contact US</h3>
+                                <p>Email: info@learntoswim.co.ke</p>
+                                <p>Whatsapp: +254 792 789618</p>
+                                <p>Mobile: +254 792 789618</p>
+                                <p>Instagram: @Learntoswimke</p>
+                                
                             </div>
                             </div>
 

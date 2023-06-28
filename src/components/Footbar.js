@@ -11,7 +11,7 @@ function Footbar() {
                         <a href="index.html" className="logo d-flex align-items-center">
                         <span>Learn-to-swim</span>
                         </a>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <p>We provide swimming lessons for individuals of all ages and abilities, from beginners to advanced swimmers. Our expert instructors will guide you through a structured program tailored to your skill level and goals.</p>
                         <div className="social-links d-flex  mt-3">
                         <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
                         <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
@@ -20,25 +20,23 @@ function Footbar() {
                         </div>
                     </div>
 
-                    <div className="col-lg-2 col-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                        <li><i className="bi bi-dash"></i> <a href="#">Web Design</a></li>
-                        <li><i className="bi bi-dash"></i> <a href="#">Web Development</a></li>
-                        <li><i className="bi bi-dash"></i> <a href="#">Product Management</a></li>
-                        <li><i className="bi bi-dash"></i> <a href="#">Marketing</a></li>
-                        <li><i className="bi bi-dash"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
-                    </div>
-
                     <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>location & contact info</h4>
+                        <h4>location</h4>
                         <p>
                         Chester House <br></br>
                         Nairobi, CBD<br></br>
                         Kenya <br></br><br></br>
-                        <strong>Phone:</strong> 0792789618<br></br>
-                        <strong>Email:</strong> learntoswim@gmail.com<br></br>
+                        </p>
+
+                    </div>
+
+                    <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                        <h4>contact info</h4>
+                        <p>
+                        <strong>Email:</strong> info@learntoswim.co.ke<br></br>
+                        <strong>Mobile:</strong> +254792789618<br></br>
+                        <strong>Whatsapp:</strong> +254792789618<br></br>
+                        <strong>Instagram:</strong> @Learntoswimke<br></br>
                         </p>
 
                     </div>

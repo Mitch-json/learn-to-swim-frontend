@@ -138,7 +138,7 @@ function AdminAddPricing() {
 
                                             </label>
                                         :
-                                            <button type="button" style={{width: '100%'}} onClick={handleSubmit} className="upload-btn" name="uploadbutton">Add Pricing</button>
+                                            <button type="submit" style={{width: '100%'}} onClick={handleSubmit} className="upload-btn" name="uploadbutton">Add Pricing</button>
                                     }
                                 </form>
 

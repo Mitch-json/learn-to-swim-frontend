@@ -71,8 +71,8 @@ function AdminAddImage() {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        setButtonLoading(true)
         if(image){
+            setButtonLoading(true)
            const fd = new FormData()
            fd.append('file', image)
            fd.append("upload_preset", "ki9rv42j")

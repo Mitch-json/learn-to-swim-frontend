@@ -56,7 +56,7 @@ function Navbar(props) {
                     <li><a onClick={handleClick2} className="nav-link scrollto about-x" href="#about">About</a></li>
                     <li><a onClick={handleClick2} className="nav-link scrollto features-x" href="#features">Gallery</a></li>
                     <li><a onClick={handleClick2} className="nav-link scrollto services-x" href="#services">Curriculum</a></li>
-                    <li><a onClick={handleClick2} className="nav-link scrollto contact-us-x" href="#contact-us">Contact Us</a></li>
+                    <li><a onClick={handleClick2} className="nav-link scrollto contact-us-x" href="#contact-us">Our Services</a></li>
                     <li><Link to='/login' className="nav-link scrollto">Login</Link></li>
                     
                     </ul>

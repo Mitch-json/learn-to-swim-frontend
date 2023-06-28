@@ -94,8 +94,8 @@ function AdminHomeSection() {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        setButtonLoading(true)
         if(image){
+            setButtonLoading(true)
            const fd = new FormData()
            fd.append('file', image)
            fd.append("upload_preset", "ki9rv42j")
@@ -182,7 +182,7 @@ function AdminHomeSection() {
                                         <img className="home-section-image" style={{height: "auto"}} src={sectionImageLink} alt="product"></img>
                                         <span style={{color: "#2869ff"}}>Home Section cover image</span>
                                     </div>
-                                    <div className="center">
+                                    <div className="center-t">
                                         <div className="title">
                                             <span>Drop file to upload</span>
                                         </div>

@@ -71,6 +71,9 @@ a {
       display: none;
     }
   }
+
+  
+ 
   
   @media (max-width: 575px) {
     .why-us .swiper {

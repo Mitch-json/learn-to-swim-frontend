@@ -21,10 +21,10 @@ function AdminHome() {
     const navigate = useNavigate()
 
     const sectionImages = {
-        "Home": "https://diggiweb.com/wp-content/uploads/2021/03/video-animation.png",
-        "About": "https://img.freepik.com/free-vector/laptop-computer-with-academic-icon-white-background_1308-70256.jpg",
-        "Contact": "https://i.pinimg.com/736x/4a/ff/d8/4affd89a9f1bef68eaddc24a749fa532.jpg",
-        "Gallery": "https://www.thepostingtree.com/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-20-at-5.38.21-AM.jpeg"
+        "Home": "https://res.cloudinary.com/dwxzlruyd/image/upload/v1687987722/animation-designer-artist-creating-digital-illustrations-web-sites-advertising-animation-creative-profession-modern-computer-technologies-flat-vector-illustration_613284-1640_yxretc.jpg",
+        "About": "https://res.cloudinary.com/dwxzlruyd/image/upload/v1687987777/laptop-computer-with-academic-icon-white-background_1308-70256_pjazq4.jpg",
+        "Contact": "https://res.cloudinary.com/dwxzlruyd/image/upload/v1687987828/4affd89a9f1bef68eaddc24a749fa532_ubsdtg.jpg",
+        "Gallery": "https://res.cloudinary.com/dwxzlruyd/image/upload/v1687987864/WhatsApp-Image-2022-05-20-at-5.38.21-AM_fyzvxd.jpg"
     }
 
     useEffect(() => {

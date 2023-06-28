@@ -22,6 +22,10 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+.bg100{
+  background-size: 100% auto !important;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -555,6 +559,10 @@ h6 {
   #hero .btn-get-started,
   #hero .btn-watch-video {
     font-size: 13px;
+  }
+
+  .mw-768{
+    display: none !important;
   }
 }
 
