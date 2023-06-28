@@ -22,8 +22,10 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
-.bg100{
-  background-size: 100% auto !important;
+@media (min-width: 1000px) {
+  .bg100{
+    background-size: 100% auto !important;
+  }
 }
 
 /*--------------------------------------------------------------
