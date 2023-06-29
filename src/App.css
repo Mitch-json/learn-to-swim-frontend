@@ -1,6 +1,6 @@
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
+  font-family: "Poppins", sans-serif !important;
+  color: #000000 !important;
 }
 
 a {
@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (min-width: 1000px) {
@@ -495,7 +495,7 @@ h6 {
 }
 
 #hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
@@ -572,6 +572,14 @@ h6 {
   #hero {
     height: 120vh;
   }
+  
+}
+@media (max-width: 400px) {
+  
+  #hero .btn-get-started {
+    padding: 10px 10px !important;
+    font-size: 12px !important;
+}
 }
 
 /*--------------------------------------------------------------
@@ -874,7 +882,7 @@ h6 {
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 
@@ -1133,7 +1141,7 @@ h6 {
   transition: none;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   transition: 0.3s;
 }
@@ -1437,7 +1445,7 @@ h6 {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #777777;
 }
 

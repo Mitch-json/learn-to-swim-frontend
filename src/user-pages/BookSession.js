@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function BookSession() {
     const [buttonLoading, setButtonLoading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
+    const [successMessage, setSuccessMessage] = useState("")
     const [searchParams, setSearchParams] = useSearchParams()
     const [packageName, setPackageName] = useState("")
     const navigate = useNavigate()
@@ -20,6 +22,8 @@ function BookSession() {
     useEffect(() => {
         if (searchParams.get('package')) {
             setPackageName(searchParams.get('package'))
+            setErrorMessage("")
+            setSuccessMessage("")
         } else {
             navigate('/pricing')
         }
@@ -28,6 +32,8 @@ function BookSession() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setButtonLoading(true)
+        setErrorMessage("")
+        setSuccessMessage("")
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -37,16 +43,17 @@ function BookSession() {
             .then(response => response.json())
             .then(data => {
                 if(data.msg){
-                    console.log(data.msg)
-                    toast.success(data.msg)
+                    setSuccessMessage("Booking confirmed. We will contact you shortly")
+                    toast.success("Booking confirmed. We will contact you shortly")
                     setButtonLoading(false)
 				}else if(data.err){
-                    console.log(data.err)
+                    setErrorMessage(data.err)
                     toast.error(data.err)
                     setButtonLoading(false)
 				}else if(data.error){
                     console.log(data.error)
                     toast.error("connection problem. Please try again.")
+                    setErrorMessage("connection problem. Please try again.")
                     setButtonLoading(false)
 				} 
         }).catch(error =>{
@@ -58,6 +65,7 @@ function BookSession() {
         <div className="backg">
             <ToastContainer 
                 theme="dark"
+                style={{width: "100%"}}
             />
             <section className="ftco-section">
                 <div className="container">
@@ -72,6 +80,20 @@ function BookSession() {
                                     <h3 className="mb-4 fgs">Book Session</h3>
                                 </div>
                             </div>
+                            {
+                                errorMessage ?
+                                    <div className="w-100">
+                                        <input type="text" style={{backgroundColor: 'rgb(255 190 190)'}} value={errorMessage} onChange={(e)=>{}} className="form-control" placeholder="Email" />
+                                    </div>
+                                : <></>
+                            }
+                            {
+                                successMessage ?
+                                    <div className="w-100">
+                                        <input type="text" style={{backgroundColor: 'rgb(190 255 225)'}} value={successMessage} onChange={(e)=>{}} className="form-control" placeholder="Email" />
+                                    </div>
+                                : <></>
+                            }
                         <form onSubmit={handleSubmit} className="signin-form">
                             <div className="form-group mb-3">
                                 <label className="label .fgs">Full Name</label>

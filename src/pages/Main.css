@@ -4,6 +4,7 @@
 a {
   text-decoration: none !important;
 }
+
 .why-us {
     padding-bottom: 0;
   }
@@ -25,8 +26,8 @@ a {
   .why-us h4 {
     font-size: 18px;
     font-weight: 400;
-    color: #29486a;
-    font-family: var(--font-secondary);
+    color: #106eea;
+    font-family: "Poppins", sans-serif;
   }
   
   .why-us .swiper {
@@ -349,7 +350,7 @@ a {
   }
   
   .call-to-action .cta-btn {
-    font-family: var(--font-default);
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
@@ -438,7 +439,7 @@ a {
   }
   
   .features .details .btn-get-started {
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
     display: inline-block;
     font-weight: 500;
     font-size: 15px;
@@ -492,14 +493,14 @@ a {
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--color-secondary);
-    font-family: var(--font-secondary);
+    font-family: "Poppins", sans-serif;
     margin-top: 3px;
   }
   
   .footer .footer-content .footer-info p {
     font-size: 15px;
     margin-bottom: 0;
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
     color: var(--color-secondary);
   }
   

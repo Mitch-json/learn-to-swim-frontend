@@ -46,9 +46,9 @@ function Navbar(props) {
             <header id="header" className="d-flex align-items-center">
                 <div className="container d-flex align-items-center justify-content-between">
 
-                <h1 className="logo"><Link to="/">Learn-to-swim<span>.</span></Link></h1>
-                {/* Uncomment below if you prefer to use an image logo
-                <a href="index.html" className="logo"><img src="assets/img/logo.png" alt=""></img></a> */}
+                {/* <h1 className="logo"><Link to="/">Learn-to-swim<span>.</span></Link></h1>
+                Uncomment below if you prefer to use an image logo */}
+                <a href="index.html" className="logo"><img src={require('../assets/img/AA2.png')} alt=""></img></a>
 
                 <nav id="navbar" className="navbar navbar-main">
                     <ul>

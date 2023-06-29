@@ -97,10 +97,9 @@ function Main(props) {
                     </Helmet>
                     <section id="hero" ref={ref0} style={{background: `url(${heroImageLink}) top left`}} className="d-flex align-items-center section1 bg100">
                         <div className="container" data-aos="zoom-out" data-aos-delay="100">
-                            <h1 style={{color: 'white'}}>Welcome to <span style={{color: 'rgb(0 31 251)'}}>Learn-To-Swim</span></h1>
-                            <h2 style={{color: '#f8f9fa'}}>We are team of talented swimmers teaching our swimming skills to all ages</h2>
+                            <h1 style={{color: 'white'}}>Welcome to <span style={{color: 'black'}}>Learn-To-Swim</span></h1>
                             <h2 style={{color: '#f8f9fa'}}>We provide swimming lessons for individuals of all ages and abilities, from beginners to advanced swimmers.</h2>
-                            <h5 style={{color: '#f8f9fa'}}>Book a lesson by filling a form</h5>
+                            <h5 style={{color: 'black'}}>Book a lesson by filling a form</h5>
                             <div className="d-flex">
                                 <Link to='/pricing' className="btn-get-started scrollto">Book a Lesson</Link>
                                 <a className="btn-get-started scrollto" href="#contact-info" style={{marginLeft: '10px'}}>Contact Us</a>
