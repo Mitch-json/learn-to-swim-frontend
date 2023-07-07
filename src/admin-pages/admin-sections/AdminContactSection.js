@@ -73,7 +73,7 @@ function AdminContactSection() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({sectionImage: url, section: secID, imageID: sectionImageID })
+            body: JSON.stringify({SectionImage: url, section: secID, imageID: sectionImageID })
         };
         fetch(`${process.env.REACT_APP_BACKEND_URL}/images/change-section-image`, requestOptions)
             .then(response => response.json())
