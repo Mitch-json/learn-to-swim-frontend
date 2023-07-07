@@ -139,7 +139,7 @@ function AdminAddImage() {
                                 <img className="home-section-image" style={{height: "auto"}} src="https://www.lifewire.com/thmb/TRGYpWa4KzxUt1Fkgr3FqjOd6VQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" alt="product"></img>
                                 <span style={{color: "#2869ff"}}>About Section new image</span>
                             </div>
-                            <div className="center">
+                            <div className="center-t">
                                 <div className="title">
                                     <span>Drop file to upload</span>
                                 </div>
