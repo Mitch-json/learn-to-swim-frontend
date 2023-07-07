@@ -183,7 +183,7 @@ function AdminContactSection() {
                                         <img className="home-section-image" style={{height: "auto"}} src={sectionImageLink} alt="product"></img>
                                         <span style={{color: "#2869ff"}}>Home Section cover image</span>
                                     </div>
-                                    <div className="center">
+                                    <div className="center-t">
                                         <div className="title">
                                             <span>Drop file to upload</span>
                                         </div>
